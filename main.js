@@ -1,5 +1,4 @@
 
-/*creado por prashant shukla */
 
 var paddle2 =10,paddle1=10;
 
@@ -21,15 +20,30 @@ var ball = {
     dy:3
 }
 
+noseX="";
+noseY="";
+video="";
+
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent('canvas');
+  video=createCapture(VIDEO);
+  video.size(600,300);
+  video.hide();
+
+  poseNet=ml5.poseNet(video,modelLoaded)
+}
+
+function modelLoaded(){
+  console.log('¡Modelo cargado!');
 }
 
 
 function draw(){
 
- background(0); 
+ background(0);
+ 
+ image(video,0,0,600,300);
 
  fill("black");
  stroke("black");
