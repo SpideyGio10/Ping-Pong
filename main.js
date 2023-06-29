@@ -22,6 +22,8 @@ var ball = {
 
 noseX="";
 noseY="";
+rightWristX="";
+rightWristY="";
 video="";
 
 function setup(){
@@ -31,15 +33,30 @@ function setup(){
   video.size(600,300);
   video.hide();
 
-  poseNet=ml5.poseNet(video,modelLoaded)
+  poseNet=ml5.poseNet(video,modelLoaded);
+  poseNet.on('pose',gotPoses);
 }
 
 function modelLoaded(){
   console.log('¡Modelo cargado!');
 }
 
+function gotPoses(results){
+  if(results.length>0){
+    console.log(results);
+    rightWristX=results[0].pose.rightWrist.x;
+    rightWristY=results[0].pose.rightWrist.y;
+  }
+}
+
 
 function draw(){
+
+if(rightWristX>0.2){
+  fill("#FF0000");
+  stroke("#000000");
+  circle(rightWristX,rightWristY,250,350);
+}
 
  background(0);
  
