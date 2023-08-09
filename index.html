@@ -17,7 +17,7 @@
         <center>
             <div>
                 <h1 class="btn btn-success heading">Ping Pong
-                <button class="btn btn-info"data-togle="modal" data-target="#myModal">Instrucciones</button>
+                <button class="btn btn-info" data-toggle="modal" data-target="#myModal">Instrucciones</button>
                 </h1>
                 <button class="btn btn-warning" onclick="startGame()">Jugar</button>
                 <br><br>
@@ -32,15 +32,24 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button class="close" data-dimiss="modal">&times;</button>
-                            <h4>Instrucciones</h4>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h3>Instrucciones</h3></div>
+                            
+                            <div class="modal-body">
+                                <ol>1.Primero mantén la pantalla de tú computadora recta
+                                    <br>
+                                    2.Alejate aproximadamente un metro de tú computadora
+                                    <br>
+                                    3.Muve tú muñeca derecha de forma asendente y desendente deberia aparecer un punto rojo en tu muñeca derecha
+                                    <br>
+                                    4.Ahora has click para jugar y de nuevo alejate un metro aproximadamente de tu computadora
+                                    <br>
+                                    5.La paleta roja es tu paleta segun el movimiento de tu muñeca derecha
+                                </ol>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <img src="" class="img-responsive instruction_image">
-                        </div>
-                    <div id="canvas">
+                    </div>
                 </div>
-            </div>
         </center>
         <script src="main.js"></script>
     </body>
