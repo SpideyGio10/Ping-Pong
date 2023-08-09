@@ -99,7 +99,10 @@ if(rightWristX>0.2){
     move();
 }
 
-
+function preload(){
+  ball_touch_paddel=loadSound("ball_touch_paddel.wav");
+  missed=loadSound("missed.wav");
+}
 
 //la función reset cuando la pelota no haga contacto con la paleta
 function reset(){
@@ -150,11 +153,13 @@ function move(){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5;
     playerscore++;
+    ball_touch_paddel.play();
   }
   else{
     pcscore++;
     reset();
     navigator.vibrate(100);
+    missed.play();
   }
 }
 if(pcscore ==4){
@@ -165,7 +170,7 @@ if(pcscore ==4){
     stroke("white");
     textSize(25)
     text("¡Fin del juego!☹☹",width/2,height/2);
-    text("¡Volver a cargar la página!",width/2,height/2+30)
+    text("Preciona el botón de reinicio para jugar de nuevo",width/2,height/2+30)
     noLoop();
     pcscore = 0;
 }
@@ -194,4 +199,10 @@ function paddleInCanvas(){
   if(mouseY < 0){
     mouseY =0;
   }  
+}
+
+function restart(){
+  pcscore=0;
+  playerscore=0;
+  noLoop();
 }
